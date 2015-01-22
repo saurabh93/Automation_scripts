@@ -1,5 +1,5 @@
 #!/bin/bash
-#Script for generating dumps of 121 or 234 of given date (only Work in bash 4 version or above
+#Script for generating dumps of 121 or 234 of given date
 
 HOST=`hostname | cut -d '-' -f 2`
 
@@ -80,6 +80,8 @@ echo -e "Enter DR1 Password"
                 rsync -avz  root@10.64.33.142:/tmp/"$dump_want"_DR2-"$year$month$date_dump".txt /tmp/
 }
 
+#***Program starts here***#
+
 echo -e "Which Region Dumps you want? \n 1)North \n 2)South \n 3)Both"
 
 read region
@@ -102,7 +104,6 @@ year=`echo $date_want | cut -d '/' -f 1`
 date_dump=`echo $date_want | cut -d '/' -f 3`
 month=`echo $date_want | cut -d '/' -f 2`
 
-#***Program starts here***#
 case $region in
         "Both")
                 north_dumps
