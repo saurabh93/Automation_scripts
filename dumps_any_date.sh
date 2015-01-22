@@ -1,5 +1,5 @@
 #!/bin/bash
-#Script for generating dumps of 121 or 234 of given date (only Work in bash 4 version or above
+#Script for generating dumps of 121 or 234 of given date (only Work in bash 4 version or above)
 
 HOST=`hostname | cut -d '-' -f 2`
 
@@ -35,6 +35,8 @@ file_exist()
                 echo $data
         fi
 }
+
+#**** Program Starts Here ****#
 
 echo -e "Which Region Dumps you want? \n 1)North \n 2)South \n 3)Both"
 
@@ -94,7 +96,6 @@ case $region in
         ;;
 esac
 
-#**** Program Starts Here ****#
 echo -e "Generating $dump_want DC2.Wait......"
 
         if [ $year == `date +%Y` ] && [ $dump_want == 234 ];then
