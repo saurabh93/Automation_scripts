@@ -33,5 +33,5 @@ npci_cal()
 	echo $sum
 }
 
-npci_cal npcidc1.txt
+npci_cal /home/saurabh/testlinux/npcidc1.txt
 
