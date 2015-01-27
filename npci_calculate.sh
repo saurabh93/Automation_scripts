@@ -22,12 +22,16 @@ npci_cal()
 {
 	filename=$1
 	
-	for i in `seq 24`
+	for j in `seq 2 8`
 	do
-		a=`cat $filename | tr -s '[:blank:]' ',' | cut -d ',' -f1 | sed -n "$i p"`
+	sum=0
+		for i in `seq 24`
+		do
+			a=`cat $filename | tr -s '[:blank:]' ',' | cut -d ',' -f 8 | sed -n "$i p"`
 	
-		sum=$((sum+a))
+			sum=$((sum+a))
 	
+		done
 	done
 
 	echo $sum
