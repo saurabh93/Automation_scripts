@@ -27,7 +27,7 @@ npci_cal()
 	sum=0
 		for i in `seq 24`
 		do
-			a=`cat $filename | tr -s '[:blank:]' ',' | cut -d ',' -f 8 | sed -n "$i p"`
+			a=`cat $filename | tr -s '[:blank:]' ',' | cut -d ',' -f $j | sed -n "$i p"`
 	
 			sum=$((sum+a))
 	
