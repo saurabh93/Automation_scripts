@@ -20,22 +20,32 @@ echo -e "Getting DC2 NPCI"
  
 npci_cal()
 {
-	filename=$1
+	if [ $# == 0 ];then
+		echo "Usage: `basename $0` filename1 filename2"
+	fi
 	
+	cat /dev/null > ~/testlinux/sum_npci.txt
+	filename=$1
+	filename2=$2
+		
 	for j in `seq 2 8`
 	do
-	sum=0
+	sum=sum_2=0
 		for i in `seq 24`
 		do
 			a=`cat $filename | tr -s '[:blank:]' ',' | cut -d ',' -f $j | sed -n "$i p"`
-	
+			b=`cat $filename2 | tr -s '[:blank:]' ',' | cut -d ',' -f $j | sed -n "$i p"`
+			
 			sum=$((sum+a))
-	
+			sum_2=$((sum_2+b))
 		done
+
+		echo "Field $j" >> ~/testlinux/sum_npci.txt
+		echo $((sum+sum_2)) >> ~/testlinux/sum_npci.txt
 	done
 
-	echo $sum
+	#echo $sum
 }
 
-npci_cal /home/saurabh/testlinux/npcidc1.txt
+npci_cal /home/saurabh/testlinux/npcidc1.txt /home/saurabh/testlinux/npcidc2.txt
 
