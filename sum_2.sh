@@ -5,6 +5,11 @@ cat /dev/null > sum_all.txt	#Empty file
 filename1="$1"			#Filename input as arguments
 filename2="$2"
 
+if [ $# != 2 ];then
+	echo "Usage $0 filename1 filename2"
+	exit 1
+fi
+
 for i in `seq 38`;
 do
 	for q in `seq 5`;
