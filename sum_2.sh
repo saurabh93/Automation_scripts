@@ -6,7 +6,7 @@ filename1="$1"			#Filename input as arguments
 filename2="$2"
 
 if [ $# != 2 ];then
-	echo "Usage $0 filename1 filename2"
+	echo "Usage $basename $0 filename1 filename2"
 	exit 1
 fi
 
