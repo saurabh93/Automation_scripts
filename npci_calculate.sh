@@ -46,7 +46,7 @@ npci_cal()
 
 		echo "Field $j" >> ~/testlinux/sum_npci.txt
 		
-		if [ $j -lt 5 ];then
+		if [ $j -lt 6 ];then
 			echo -e $sum "\t" $sum_south >> ~/testlinux/sum_npci.txt
 		else
 			echo -e $((sum+sum_south)) >> ~/testlinux/sum_npci.txt
